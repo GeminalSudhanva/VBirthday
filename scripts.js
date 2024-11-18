@@ -1,33 +1,47 @@
-// Reveal Birthday Card Content
-function openCard() {
-    document.getElementById("card-content").classList.toggle("hidden");
+// Confetti Animation
+function celebrate() {
+  const canvas = document.getElementById('confetti-canvas');
+  const confettiInstance = confetti.create(canvas, { resize: true, useWorker: true });
+  confettiInstance({
+    particleCount: 200,
+    spread: 60,
+    origin: { y: 0.6 },
+  });
 }
 
-// Reveal Wish Message
-function revealWish() {
-    document.getElementById("wish-text").classList.toggle("hidden");
+setTimeout(celebrate, 3500);
+
+// Music Toggle
+const musicToggle = document.getElementById('musicToggle');
+const bgMusic = document.getElementById('bgMusic');
+musicToggle.addEventListener('click', () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicToggle.textContent = 'Pause Music 🎶';
+  } else {
+    bgMusic.pause();
+    musicToggle.textContent = 'Play Music 🎵';
+  }
+});
+
+// Countdown Timer
+function countdown() {
+  const birthday = new Date("2025-11-12");
+  const now = new Date();
+  const timeDiff = birthday - now;
+
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  document.getElementById('timer').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
+setInterval(countdown, 1000);
 
-// Toggle Background Music
-let isPlaying = false;
-function toggleMusic() {
-    const music = document.getElementById("bg-music");
-    if (isPlaying) {
-        music.pause();
-    } else {
-        music.play();
-    }
-    isPlaying = !isPlaying;
-}
-
-
-// Countdown to Next Birthday
-function countdownToNextBirthday() {
-    const nextBirthday = new Date(new Date().getFullYear() + 1, 0, 1); // Set next birthday date
-    const now = new Date();
-    const diff = nextBirthday - now;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").textContent = days;
-}
-
-countdownToNextBirthday();
+// Resize Canvas for Confetti
+window.addEventListener('resize', () => {
+  const canvas = document.getElementById('confetti-canvas');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
