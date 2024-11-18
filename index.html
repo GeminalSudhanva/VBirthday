@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Birthday Wishes for Vishu!!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Animated Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="typing-effect">Happy Birthday, Vishwitha!!</h1>
+      <p>Today we celebrate you! 🎉</p>
+      <button id="viewWishesBtn">View Wishes from Friends</button>
+    </div>
+  </section>
+
+  <canvas id="confetti-canvas"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script>
+    function celebrate() {
+      // Trigger confetti animation
+      var canvas = document.getElementById('confetti-canvas');
+      var myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
+      myConfetti({
+        particleCount: 200,
+        spread: 60,
+        origin: { y: 0.6 }
+      });
+    }
+
+    // Optional: Trigger confetti after the typing animation completes
+    setTimeout(function() {
+      celebrate();  // Call celebrate function to start confetti
+    }, 3500); // Wait for the typing effect to finish before triggering confetti
+  </script>
+
+  <!-- Friend Wishes Section -->
+  <section class="friend-wishes">
+    <h2>Messages from Your Friends</h2>
+    <div class="wishes-container">
+      <div class="wish-card">
+        <h3>Sudhanva</h3>
+        <p>Happy Birthday! And Isn't The Moon Beautiful Today!! (Search the meaning Of the this in japanese 🤫😁)</p>
+      </div>
+      <div class="wish-card">
+        <h3>Balachandra</h3>
+        <p>Choose the right person for your life who supports your goal, not who dislikes your goal.</p>
+      </div>
+      <div class="wish-card">
+        <h3>Sangeeta</h3>
+        <p>Happiest born day vishi 🎂🍫🎂 I hope your birthday is full of sunshine , rainbows🌈,love & laughter sending may good wishes by to you on your special day &  your dreams come true and always keep smiling dear🥰🥰</p>
+      </div>
+      <div class="wish-card">
+        <h3>Ganesh</h3>
+        <p>Happy Birthday, have a blast!</p>
+      </div>
+      <div class="wish-card">
+        <h3>Khushi</h3>
+        <p>May this year be full of success and happiness!</p>
+      </div>
+      <div class="wish-card">
+        <h3>Piyashree</h3>
+        <p>Wishing you a very happy birthday to you dear God gives you a good health and wealth to you stay healthy and happy always and a great year ahead 💗</p>
+      </div>
+      <div class="wish-card">
+        <h3>Gayatri</h3>
+        <p>Hope your day is as wonderful as you are!</p>
+      </div>
+    </div>
+  </section>
+
+ <!-- Memory Lane Section -->
+<section class="memory-lane">
+  <h2>Memory Lane</h2>
+  <div class="memory-frames">
+    <div class="frame">
+      <img src="Images/WhatsApp Image 2024-11-12 at 8.27.00 PM.jpeg" alt="Memory 1">
+    </div>
+    <div class="frame">
+      <img src="Images/WhatsApp Image 2024-11-12 at 8.26.06 PM.jpeg" alt="Memory 2">
+    </div>
+    <div class="frame">
+      <img src="Images/WhatsApp Image 2024-11-12 at 8.25.17 PM.jpeg" alt="Memory 3">
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Music Control Section -->
+  <section class="music-control">
+    <button id="musicToggle">Play Music 🎵</button>
+    <audio id="bgMusic" loop>
+      <source src="Audio/WhatsApp Audio 2024-11-12 at 8.50.37 PM.mpeg" type="audio/mp3">
+    </audio>
+  </section>
+
+  <!-- Countdown Section -->
+  <section class="countdown">
+    <h2>Countdown to Your Next Birthday</h2>
+    <div id="timer"></div>
+  </section>
+
+  <div class="footer">
+    Made with ❤️ by Sudhanva
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Music Toggle Functionality
+    const musicToggle = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
+
+    musicToggle.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicToggle.textContent = 'Pause Music 🎶';
+      } else {
+        bgMusic.pause();
+        musicToggle.textContent = 'Play Music 🎵';
+      }
+    });
+
+    // Carousel Functionality
+    let index = 0;
+    const items = document.querySelectorAll('.carousel-item');
+
+    setInterval(() => {
+      items[index].style.transform = 'translateX(-100%)';
+      index = (index + 1) % items.length;
+      items[index].style.transform = 'translateX(0)';
+    }, 3000);
+
+    // Countdown Functionality
+    function countdown() {
+      const birthday = new Date("2025-11-12");
+      const now = new Date();
+      const timeDiff = birthday - now;
+
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      document.getElementById('timer').innerHTML = 
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(countdown, 1000);
+  </script>
+
+  <!-- Styles -->
+  <style>
+    /* Hero Section */
+    .hero {
+      background-color: #ff7675;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero-content h1 {
+      color: white;
+      font-size: 3em;
+    }
+
+    .hero-content p {
+      color: white;
+      font-size: 1.2em;
+    }
+
+    .hero-content button {
+      background-color: #ffeb3b;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Typing Effect */
+    .typing-effect {
+      font-size: 2.5em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid;
+      width: 0;
+      animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: black; }
+    }
+
+    /* Friend Wishes Section */
+    .friend-wishes {
+      background-color: #f7f1e3;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .wishes-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .wish-card {
+      background-color: #ffda79;
+      border-radius: 8px;
+      padding: 15px;
+      width: 250px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .wish-card h3 {
+      margin-top: 0;
+      color: #d35400;
+    }
+
+    .wish-card p {
+      color: #2d3436;
+    }
+
+    /* Memory Carousel */
+    .memory-carousel {
+      background-color: #fff6e8;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* Music Control Section */
+    .music-control {
+      text-align: center;
+      padding: 10px;
+    }
+
+    #musicToggle {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff7675;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    /* Countdown Section */
+    .countdown {
+      text-align: center;
+      padding: 30px;
+      background-color: #ffeb3b;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f7f1e3;
+      color: #2d3436;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2em;
+      }
+
+      .wish-card {
+        width: 200px;
+      }
+
+      .carousel {
+        flex-direction: column;
+      }
+    }
+  </style>
+</body>
+</html>

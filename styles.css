@@ -1,0 +1,239 @@
+/* Confetti Canvas */
+#confetti-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So that it doesn't interfere with other elements */
+  z-index: 1000;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff6e8;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+
+}
+
+
+/* Hero Section */
+.hero {
+  background-color: #ffeaa7;
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  color: #d35400;
+  font-family: 'Georgia', serif;
+}
+
+.typing-effect {
+  font-size: 3em;
+  color: #d35400;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #d35400;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #d35400; }
+}
+
+/* New animation to keep text visible */
+@keyframes stay-visible {
+  100% {
+    border-color: black; /* Keep the border invisible */
+    width: 100%; /* Keep the width at 100% */
+  }
+}
+
+.hero-content button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #e67e22;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero-content button:hover {
+  background-color: #d35400;
+}
+
+/* Friend Wishes Section */
+.friend-wishes {
+  background-color: #f7f1e3;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.wishes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.wish-card {
+  background-color: #ffda79;
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wish-card:hover {
+  transform: scale(1.05);
+}
+
+.wish-card h3 {
+  margin-top: 0;
+  color: #d35400;
+  font-family: 'Georgia', serif;
+}
+
+.wish-card p {
+  color: #2d3436;
+}
+
+/* Memory Lane Section */
+.memory-lane {
+  background-color: #fff6e8;
+  padding: 40px;
+  text-align: center;
+}
+
+.memory-frames {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.memory-frames .frame {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border: 5px solid #ff7675;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.memory-frames .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Music Control Button */
+.music-control {
+  text-align: center;
+  padding: 20px;
+}
+
+#musicToggle {
+  padding: 12px 24px;
+  border: none;
+  background-color: #ff7675;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#musicToggle:hover {
+  background-color: #e74c3c;
+}
+
+/* Countdown Timer */
+.countdown {
+  background-color: #f8c291;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+#timer {
+  font-size: 1.8em;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .hero-content h1, .typing-effect {
+    font-size: 2.5em;
+  }
+
+  .wish-card {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .carousel {
+    width: 90%;
+  }
+
+  #musicToggle,
+  .hero-content button {
+    width: 80%;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Additional adjustments for very small screens */
+  .hero-content h1, .typing-effect {
+    font-size: 2em;
+  }
+
+  .hero-content button,
+  #musicToggle {
+    width: 90%;
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  .wish-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .carousel {
+    max-width: 100%;
+  }
+}
+
+/* Footer */
+.footer {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1em;
+  color: #7f8c8d;
+}
